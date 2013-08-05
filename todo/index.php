@@ -20,7 +20,7 @@
 
         <form id="age-calulation-form" action="index.php" method="post">
             <label for="todo">Todo:</label>
-            <input name="todo" type="" placeholder="Was gemacht werden muss!" required="" autofocus="" />
+            <input name="todo" type="" placeholder="Was gemacht werden muss!" required="" autofocus="" size=30/>
         </form>
 
         <?php
