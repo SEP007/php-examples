@@ -2,4 +2,4 @@
 <p>
    Zurück zur Startseite?
 </p>
-<h2><a href="index.php?action=show">Ab dafür...</a></h2>
+<h2><a href="index.php?action=form">Ab dafür...</a></h2>
