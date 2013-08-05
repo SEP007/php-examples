@@ -18,30 +18,34 @@
             }
         ?>
 
-        <form id="age-calulation-form" action="index.php" method="post">
+        <form id="age-calulation-form" action="index.php?action=add" method="post">
             <label for="todo">Todo:</label>
             <input name="todo" type="" placeholder="Was gemacht werden muss!" required="" autofocus="" size=30/>
         </form>
 
         <?php
-            if($_POST['todo'] != "") {
-                $todo = $_POST['todo'];
-                $mysqli->query("INSERT INTO todos(todo) VALUES ('$todo')");
-            }
+            $action = $_GET['action'] != '' ? $_GET['action'] : null;
 
-            if($_GET['delete'] != "") {
-                $id = $_GET['delete'];
-                $mysqli->query("DELETE FROM todos WHERE id = '$id'");
-            }
+            switch ($action) {
+                case 'add':
+                    $todo = $_POST['todo'];
+                    $mysqli->query("INSERT INTO todos(todo) VALUES ('$todo')");
+                    break;
+                case 'delete':
+                    $id = $_GET['id'];
+                    $mysqli->query("DELETE FROM todos WHERE id = '$id'");
+                    break;
+                case 'done':
+                    $id = $_GET['id'];
+                    $mysqli->query("UPDATE todos SET done=1 WHERE id='$id'");
+                    break;
+                case 'undone':
+                    $id = $_GET['id'];
+                    $mysqli->query("UPDATE todos SET done=0 WHERE id='$id'");
+                    break;
+                default:
 
-            if($_GET['done'] != "") {
-                $id = $_GET['done'];
-                $mysqli->query("UPDATE todos SET done=1 WHERE id='$id'");
-            }
-
-            if($_GET['undone'] != "") {
-                $id = $_GET['undone'];
-                $mysqli->query("UPDATE todos SET done=0 WHERE id='$id'");
+                    break;
             }
         ?>
 
@@ -54,10 +58,10 @@
                     $name = $todo['todo'];
                     $id = $todo['id'];
 
-                    $done = (bool) $todo['done'] === false ? "done" : "undone";
+                    $action = (bool) $todo['done'] === false ? "done" : "undone";
                     $sign = (bool) $todo['done'] === true ? "-" : "+";
 
-                    echo "<li><a href='index.php?$done=$id'>$sign</a> $name <a href='index.php?delete=$id'>✗</a></li>";
+                    echo "<li><a href='index.php?action=$action&id=$id'>$sign</a> $name <a href='index.php?action=delete&id=$id'>✗</a></li>";
                 }
             ?>
         </ul>

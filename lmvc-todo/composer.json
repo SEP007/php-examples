@@ -1,0 +1,29 @@
+{
+    "name": "scandio/lmvc-afresh",
+    "type": "application",
+    "description": "Boilerplate project for start afresh with LMVC.",
+    "keywords": ["php", "application", "mvc", "scandio", "lmvc"],
+    "homepage": "https://github.com/scandio/lmvc-afresh",
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Scandio GmbH",
+            "homepage": "http://www.scandio.de/"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "scandio/lmvc": "dev-master",
+        "scandio/troba": "dev-master",
+        "scandio/lmvc-modules": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "": "app"
+        }
+    },
+    "config" : {
+        "vendor-dir" : "composer"
+    }
+}

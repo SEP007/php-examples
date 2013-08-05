@@ -1,0 +1,36 @@
+<form role="form" action="<?= $app->url('Application::add') ?>">
+  <div class="form-group">
+    <input type="string" name="todo" class="form-control" id="" placeholder="Neuer Todo">
+  </div>
+</form>
+
+<table class="all-todos table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Status</th>
+      <th>Was...</th>
+      <th>Löschen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach($todos as $todo): ?>
+       <tr>
+            <td><?= $todo->id ?></td>
+            <td>
+               <a href='<?= $app->url('Application::status', $todo->id) ?>'>
+                  <?php echo ( $todo->done == 1 ) ? "-" : "+" ?>
+               </a>
+            </td>
+            <td>
+               <?= $todo->todo ?>
+            </td>
+            <td>
+               <a href='<?= $app->url('Application::delete', $todo->id) ?>'>
+                  ✗
+               </a>
+            </td>
+       </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>

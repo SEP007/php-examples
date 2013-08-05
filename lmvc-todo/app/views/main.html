@@ -1,0 +1,60 @@
+<?php
+    use ui\UI;
+    use Scandio\lmvc\modules\assetpipeline\view\Asset;
+    use Scandio\lmvc\modules\security\handlers\database\models;
+    use Scandio\lmvc\modules\security\Security;
+    use Scandio\lmvc\modules\htmltag\Html;
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Scandio GmbH">
+
+    <title>Todo LMVC</title>
+
+    <?= UI::css(Asset::assets(['bootstrap.css'], [])) ?>
+
+    <?= UI::css(Asset::assets(['styles.less'], [])) ?>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">LMVC Todo</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="<?= $app->url('Application::index') ?>">Alle Todos</a></li>
+            <li><a href="<?= $app->url('Application::undone') ?>">Anstehende Todos</a></li>
+            <li><a href="<?= $app->url('Application::done') ?>">Erledigte Todos</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="todo-lmvc">
+        <header>
+          <h1>Wow, you got a whole lot todo!</h1>
+        </header>
+
+        <?php include($app->view) ?>
+      </div>
+
+    </div>
+
+    <?= UI::js(Asset::assets(['jquery.js', 'bootstrap.js'], ['min'])) ?>
+  </body>
+</html>
