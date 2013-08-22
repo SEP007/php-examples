@@ -22,8 +22,6 @@ class Application extends lmvc\controller
 
       $todo->update();
 
-      var_dump($todo);
-
       return static::redirect('Application::index');
    }
 
