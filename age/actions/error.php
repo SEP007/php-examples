@@ -1,5 +1,5 @@
-<h1>Du musst schon sagen was du willst!</h1>
+<h1>Better tell the app what to do!</h1>
 <p>
-   Zurück zur Startseite?
+   Back to home?
 </p>
-<h2><a href="index.php?action=form">Ab dafür...</a></h2>
+<h2><a href="index.php?action=form">Go home...</a></h2>
