@@ -2,7 +2,7 @@
     <head>
         <meta charset='utf-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <title>Die Todo App</title>
+        <title>Si Todo App</title>
         <meta name='description' content=''>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
     </head>
@@ -14,13 +14,13 @@
 
             $mysqli = new mysqli("localhost", "root", "boot", "php-examples");
             if ($mysqli->connect_errno) {
-                echo "Konnte Verbinung nicht herstellen: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+                echo "No Connection to database: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
             }
         ?>
 
         <form id="age-calulation-form" action="index.php?action=add" method="post">
             <label for="todo">Todo:</label>
-            <input name="todo" type="" placeholder="Was gemacht werden muss!" required="" autofocus="" size=30/>
+            <input name="todo" type="" placeholder="What needs to be done?" required="" autofocus="" size=30/>
         </form>
 
         <?php
@@ -45,12 +45,12 @@
                     break;
                 default:
 
-                    break;
+                break;
             }
         ?>
 
         <ul id="todos">
-            <h3>Deine Liste</h3>
+            <h3>List of Todos</h3>
             <?php
                 $todos = $mysqli->query("SELECT * FROM todos ORDER BY id DESC");
 
