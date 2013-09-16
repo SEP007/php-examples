@@ -1,8 +1,8 @@
 CREATE DATABASE IF NOT EXISTS php-examples;
 
-DROP TABLE IF EXISTS `todos`;
+DROP TABLE IF EXISTS `Todos`;
 
-CREATE TABLE `todos` (
+CREATE TABLE `Todos` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `todo` varchar(255) DEFAULT NULL,
   `done` tinyint(1) DEFAULT '0',
